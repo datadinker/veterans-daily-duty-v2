@@ -1,0 +1,170 @@
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body { margin: 0; padding: 0; }
+
+.topbar {
+  padding: 14px 16px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.brand h1 { margin: 0; font-size: 20px; }
+.subtitle { font-size: 12px; opacity: 0.7; }
+
+.controls { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn {
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn.primary { border-color: #888; font-weight: 600; }
+.btn.danger { border-color: #a00; }
+
+.main {
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.statusLine { font-weight: 600; }
+.subStatusLine { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+
+/* ===== BOARD ===== */
+.board { display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+
+.tile {
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+.tile.green { border-color: #2a7; background: #2a7; color: #fff; }
+.tile.yellow { border-color: #ca0; background: #ca0; color: #111; }
+.tile.gray { border-color: #777; background: #777; color: #fff; }
+
+/* Bright blue highlight for color-blind friendly "win row" */
+.row.winRow .tile {
+  outline: 4px solid #005bff;
+  outline-offset: 2px;
+}
+
+/* ===== KEYBOARD ===== */
+.keyboard { margin-top: 4px; }
+
+.kbd {
+  display: grid;
+  gap: 8px;
+}
+
+.kbdRow {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.key {
+  height: 48px;
+  min-width: 34px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  background: #f2f2f2;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  user-select: none;
+}
+
+.key.wide {
+  min-width: 78px;
+}
+
+.key.gray { background: #777; border-color: #777; color: #fff; }
+.key.yellow { background: #ca0; border-color: #ca0; color: #111; }
+.key.green { background: #2a7; border-color: #2a7; color: #fff; }
+
+/* Mobile-ish safety: prevent keys from overflowing */
+@media (max-width: 420px) {
+  .key { min-width: 28px; height: 44px; font-size: 13px; }
+  .key.wide { min-width: 64px; }
+}
+
+/* ===== DAILY MESSAGE ===== */
+.dailyMessageWrap {
+  display: grid;
+  place-items: center;
+  margin-top: 2px;
+}
+
+.dailyMessage {
+  font-size: 13px;
+  opacity: 0.75;
+  letter-spacing: 0.6px;
+}
+
+/* ===== INPUT (kept for accessibility/focus) ===== */
+.inputRow { display: flex; gap: 8px; }
+
+.guessInput {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+}
+
+/* You can hide it later if you want, but for now keep it visible */
+.help { font-size: 12px; opacity: 0.8; }
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.35);
+  padding: 16px;
+}
+
+.modal.hidden { display: none; }
+
+.modalCard {
+  width: min(560px, 100%);
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  padding: 14px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.statsBody {
+  white-space: pre-wrap;
+  margin: 10px 0 0;
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+}

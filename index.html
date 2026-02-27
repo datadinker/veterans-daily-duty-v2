@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Duty – Veteran Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>DAILY DUTY</h1>
+      <div class="subtitle">Veteran Edition • 6 Tries • 5 Letters</div>
+    </div>
+
+    <div class="controls">
+      <button id="modeDaily" class="btn primary" type="button">Official Daily</button>
+      <button id="modePractice" class="btn" type="button">Practice</button>
+
+      <button id="difficultyBeginner" class="btn" type="button">Beginner</button>
+      <button id="difficultyPlayer" class="btn" type="button">Player</button>
+
+      <button id="btnStats" class="btn" type="button">Stats</button>
+      <button id="btnResetStats" class="btn danger" type="button">Reset Stats</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="status">
+      <div id="statusLine" class="statusLine">Select a mode to begin.</div>
+      <div id="subStatusLine" class="subStatusLine">Official Daily tracks stats. Practice does not.</div>
+    </section>
+
+    <!-- GAME BOARD -->
+    <section id="board" class="board" aria-label="Game board"></section>
+
+    <!-- ON-SCREEN KEYBOARD (rendered by script.js) -->
+    <section id="keyboard" class="keyboard" aria-label="Keyboard"></section>
+
+    <!-- DAILY MESSAGE (always visible; populated by script.js) -->
+    <section class="dailyMessageWrap" aria-label="Daily message">
+      <div id="dailyMessage" class="dailyMessage">—</div>
+    </section>
+
+    <!-- Hidden input (keeps hardware keyboard focus / accessibility) -->
+    <section class="inputRow" aria-label="Guess input">
+      <input
+        id="guessInput"
+        class="guessInput"
+        type="text"
+        inputmode="text"
+        autocapitalize="characters"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+        maxlength="5"
+        placeholder="TYPE 5 LETTERS"
+      />
+      <button id="btnEnter" class="btn primary" type="button">Enter</button>
+    </section>
+
+    <section class="help">
+      <div><strong>Beginner:</strong> Any 5 letters allowed.</div>
+      <div><strong>Player:</strong> Must be a real word.</div>
+    </section>
+  </main>
+
+  <!-- Stats Modal -->
+  <div id="statsModal" class="modal hidden">
+    <div class="modalCard">
+      <div class="modalHeader">
+        <h2>Stats (Official Daily)</h2>
+        <button id="btnCloseStats" class="btn" type="button">Close</button>
+      </div>
+      <pre id="statsBody" class="statsBody"></pre>
+    </div>
+  </div>
+
+  <!-- LOAD ORDER MATTERS -->
+  <script src="wordlist.js"></script>
+  <script src="valid_words_2000.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -127,6 +127,80 @@
     "Veteran Resolve",
     "Welcome Home",
     "Always Remember",
+
+  "SEMPER FI",
+  "THIS WE'LL DEFEND",
+  "SEMPER FORTIS",
+  "AIM HIGH",
+  "SEMPER SUPRA",
+  "SEMPER PARATUS",
+  "THANK YOU VETERANS",
+  "VETERAN STRONG",
+  "THANK YOU VA",
+  "THANK YOU USO",
+
+  // --- Tactical / Training ---
+  "FAST IS SLOW",
+  "SLOW IS SMOOTH",
+  "SMOOTH IS FAST",
+  "OPSEC AWARENESS",
+  "READINESS ALWAYS",
+  "READINESS IS 24 HOURS",
+  "MISSION AWARENESS",
+  "MISSION CREEP",
+  "HOPE IS NOT A PLAN",
+  "GEAR COMES FIRST",
+  "WATCH YOUR SIX",
+  "CHECK YOUR BUDDY",
+  "CALL YOUR BUDDIES",
+  "CHECK ON EACH OTHER",
+  "SHOOT MOVE COMMUNICATE",
+  "BACK AZIMUTH",
+  "WINDAGE ELEVATION",
+
+  // --- Culture / Humor ---
+  "FIELD DAY",
+  "JUNK ON THE BUNK",
+  "PAYDAY JOY",
+  "PAYDAY BLUES",
+  "POGIE BAIT PX",
+  "SICKBAY COMMANDO",
+  "LIBERTY HOUND",
+  "CATTLE CAR",
+  "HANGOVERS HURT",
+  "BEEN THERE DONE THAT",
+
+  // --- Fitness / Discipline ---
+  "FITNESS FIRST",
+  "RESPECT YOUR FEET",
+  "NO PAIN NO GAIN",
+  "FOCUS ON MISSION",
+  "EASY WAY IS MINED",
+
+  // --- Power & Capability ---
+  "AIR POWER",
+  "SEA POWER",
+  "LAND SEA AIR",
+  "RIFLE RANGE",
+  "NIGHT VISION",
+
+  // --- Ceremony / Heritage ---
+  "EVENING PARADE",
+  "SUNSET PARADE",
+  "OLD GUARD",
+  "THUNDERBIRDS",
+  "BLUE ANGELS",
+  "TUN TAVERN",
+
+  // --- Spirit / Identity ---
+  "GUARDIAN SPIRIT",
+  "FREEDOM AINT FREE",
+  "TEAMMATES",
+  "SADDLE UP",
+  "HOOAH",
+  "OORAH",
+  "HOOYAH"
+
   ];
 
   // ===== DOM =====
@@ -170,7 +244,8 @@
       .map(w => String(w).toUpperCase())
       .filter(w => /^[A-Z]{5}$/.test(w))
   );
-  for (const a of ANSWERS) VALID_SET.add(a);
+ // Ensure all answers are always valid guesses (even if missing from dictionary)
+for (const a of ANSWERS) VALID_SET.add(a); 
 
   if (ANSWERS.length === 0) throw new Error("ANSWERS is empty/invalid.");
 
